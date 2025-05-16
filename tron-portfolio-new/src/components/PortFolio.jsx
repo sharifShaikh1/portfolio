@@ -93,31 +93,30 @@ const PortFolio = () => {
   };
 
   // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus('');
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setFormStatus('');
 
-    try {
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+  try {
+    const response = await fetch('https://portfoliobackend-25cs.onrender.com/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
 
-      const result = await response.json();
-      if (response.ok) {
-        setFormStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' }); // Reset form
-      } else {
-        setFormStatus(result.message || 'Error submitting form. Please try again.');
-      }
-    } catch (error) {
-      setFormStatus('Error submitting form. Please try again.');
+    const result = await response.json();
+    if (response.ok) {
+      setFormStatus('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      setFormStatus(result.message || 'Error submitting form. Please try again.');
     }
-  };
-
+  } catch (error) {
+    setFormStatus('Error submitting form. Please try again.');
+  }
+};
   return (
     <>
       <style>{`
