@@ -608,7 +608,7 @@ const handleSubmit = async (e) => {
       <section className="projects" id="projects" data-aos="fade-up">
         <h2>Projects</h2>
         <div className="projects-container">
-<<<<<<< HEAD
+
           <div className="project-card" tabIndex={0} role="article" aria-label="Project 1: Portfolio Website" onClick={() => console.log('Project card clicked')}>
   <a href="https://tinyurl.com/Sharif-Portfolio" onClick={() => console.log('Link clicked')}>
     <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
@@ -616,13 +616,13 @@ const handleSubmit = async (e) => {
     <p>A sleek portfolio website built with React and CSS animations.</p>
   </a>
 </div>
-=======
+
           <div className="project-card" tabIndex={0} role="article" aria-label="Project 1: Portfolio Website">
            <a href="https://tinyurl.com/Sharif-Portfolio"> <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
             <h3>Portfolio Website</h3>
             <p>A sleek portfolio website built with React and CSS animations.</p></a>
           </div>
->>>>>>> 1012dbfa241da2db7ebbb7a1bf672de1af900e84
+
           <div className="project-card" tabIndex={0} role="article" aria-label="Project 2: E-commerce App">
            <a href="https://cravecrafters-frontend.onrender.com/"> <img src="https://i.postimg.cc/K8Z9ZTm2/e-commerce-img.png" alt="E-commerce project" />
             <h3>E-commerce App</h3>
