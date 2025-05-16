@@ -21,7 +21,7 @@ if (!process.env.MONGODB_URI || !process.env.EMAIL_USER || !process.env.EMAIL_PA
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: ['https://sharif-portfolio-egkmzb9re-sharifs-projects-dbe6c303.vercel.app', 'http://localhost:5173'],
+  origin: ['https://sharif-portfolio-frontend.onrender.com', 'http://localhost:5173'],
   methods: ['POST', 'GET', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
 }));
