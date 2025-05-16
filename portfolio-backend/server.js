@@ -26,15 +26,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type'],
 }));
 
-<<<<<<< HEAD
 // MongoDB Connection
-=======
-
-app.get('/api/contact', (req, res) => {
-  res.status(200).json({ message: 'GET request to /api/contact works!' });
-});
-// MongoDB Connection (remove deprecated options)
->>>>>>> f5d74027b02e4172528104dfa76cadb5e8a6c678
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
