@@ -635,18 +635,7 @@ const PortFolio = () => {
             </a>
           </div>
 
-          <div className="project-card" tabIndex={0} role="article" aria-label="Project: Chat Application">
-            <a 
-              href="https://example.com/chat-app" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={(e) => { console.log('Chat app link clicked:', e.target.href); e.stopPropagation(); }}
-            >
-              <img src="https://via.placeholder.com/300x150" alt="Chat app project" />
-              <h3>Chat Application</h3>
-              <p>Real-time chat application using Socket.IO and Node.js.</p>
-            </a>
-          </div>
+          
           
         </div>
         <div className="scroll-arrow projects-scroll-arrow">➡️</div>
