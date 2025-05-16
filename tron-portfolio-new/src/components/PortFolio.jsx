@@ -93,30 +93,31 @@ const PortFolio = () => {
   };
 
   // Handle form submission
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setFormStatus('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('');
 
-  try {
-    const response = await fetch('https://portfoliobackend-25cs.onrender.com/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch('https://portfoliobackend-25cs.onrender.com/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const result = await response.json();
-    if (response.ok) {
-      setFormStatus('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
-    } else {
-      setFormStatus(result.message || 'Error submitting form. Please try again.');
+      const result = await response.json();
+      if (response.ok) {
+        setFormStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setFormStatus(result.message || 'Error submitting form. Please try again.');
+      }
+    } catch (error) {
+      setFormStatus('Error submitting form. Please try again.');
     }
-  } catch (error) {
-    setFormStatus('Error submitting form. Please try again.');
-  }
-};
+  };
+
   return (
     <>
       <style>{`
@@ -241,7 +242,7 @@ const handleSubmit = async (e) => {
         section {
           padding: 5rem 2rem;
           text-align: center;
-          position: relative; /* For positioning scroll arrows */
+          position: relative;
         }
         section h2 {
           font-family: 'Orbitron', sans-serif;
@@ -255,7 +256,6 @@ const handleSubmit = async (e) => {
           font-size: 1.2rem;
           text-shadow: 0 0 5px #00D4FF;
         }
-        /* Skills Section */
         .skills {
           display: flex;
           flex-direction: row;
@@ -265,9 +265,9 @@ const handleSubmit = async (e) => {
           min-height: 80px;
         }
         .skills h2 {
-          flex: 0 0 auto; /* Prevent "My Skills" from shrinking */
-          margin-bottom: 0; /* Remove bottom margin since it's on the same line */
-          padding-right: 1rem; /* Add padding to ensure separation from fade effect */
+          flex: 0 0 auto;
+          margin-bottom: 0;
+          padding-right: 1rem;
           z-index: 2;
         }
         .skills-container {
@@ -275,19 +275,18 @@ const handleSubmit = async (e) => {
           flex-direction: row;
           overflow-x: auto;
           gap: 2rem;
-          flex: 1; /* Take remaining space */
+          flex: 1;
           scroll-behavior: smooth;
-          -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-          scrollbar-width: none; /* Hide scrollbar in Firefox */
-          -ms-overflow-style: none; /* Hide scrollbar in Edge */
-          max-width: 880px; /* Width of 4 skill bars (200px each) + gaps (2rem = 32px each) */
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          max-width: 880px;
           min-width: 0;
           position: relative;
         }
         .skills-container::-webkit-scrollbar {
-          display: none; /* Hide scrollbar in Chrome/Safari */
+          display: none;
         }
-        /* Fade effect on edges to indicate scrollability */
         .skills-container::before,
         .skills-container::after {
           content: '';
@@ -299,7 +298,7 @@ const handleSubmit = async (e) => {
           pointer-events: none;
         }
         .skills-container::before {
-          left: 400px; /* Adjusted to ensure it starts after "My Skills" */
+          left: 400px;
           background: linear-gradient(to right, #000, transparent);
         }
         .skills-container::after {
@@ -307,7 +306,7 @@ const handleSubmit = async (e) => {
           background: linear-gradient(to left, #000, transparent);
         }
         .skill-bar {
-          flex: 0 0 200px; /* Fixed width, no shrinking */
+          flex: 0 0 200px;
           text-align: left;
         }
         .skill-bar label {
@@ -331,7 +330,6 @@ const handleSubmit = async (e) => {
           transition: width 2s ease-in-out;
           box-shadow: 0 0 10px #00D4FF;
         }
-        /* Projects Section */
         .projects {
           position: relative;
         }
@@ -341,15 +339,14 @@ const handleSubmit = async (e) => {
           overflow-x: auto;
           gap: 2rem;
           scroll-behavior: smooth;
-          -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-          scrollbar-width: none; /* Hide scrollbar in Firefox */
-          -ms-overflow-style: none; /* Hide scrollbar in Edge */
-          padding: 1rem 20px; /* Increased padding to accommodate scaled cards */
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          padding: 1rem 20px;
         }
         .projects-container::-webkit-scrollbar {
-          display: none; /* Hide scrollbar in Chrome/Safari */
+          display: none;
         }
-        /* Add pseudo-elements to create extra space for the first and last cards */
         .projects-container::before,
         .projects-container::after {
           content: '';
@@ -357,7 +354,7 @@ const handleSubmit = async (e) => {
           top: 0;
           bottom: 0;
           width: 30px;
-          z-index: 1;
+          z-index: 0; /* Lowered to ensure links are clickable */
           pointer-events: none;
         }
         .projects-container::before {
@@ -368,37 +365,36 @@ const handleSubmit = async (e) => {
           right: 0;
           background: linear-gradient(to left, #000, transparent);
         }
-        /* Add extra spacing for the first and last cards */
         .projects-container > .project-card:first-child {
-          margin-left: 20px; /* Extra space on the left for the first card */
+          margin-left: 20px;
         }
         .projects-container > .project-card:last-child {
-          margin-right: 20px; /* Extra space on the right for the last card */
+          margin-right: 20px;
         }
         .project-card {
           background-color: #111;
           border: 1px solid #00D4FF;
           border-radius: 10px;
-          flex: 0 0 300px; /* Fixed width, no shrinking */
+          flex: 0 0 300px;
           padding: 1rem;
           box-shadow: 0 0 15px #00D4FF;
           transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
           cursor: pointer;
           color: #00D4FF;
           text-align: left;
-          position: relative; /* Ensure z-index works */
-          z-index: 0; /* Ensure cards are below the fade effects initially */
+          position: relative;
+          z-index: 1; /* Ensure cards are above pseudo-elements */
         }
         .project-card:hover {
           transform: scale(1.05);
           box-shadow: 0 0 30px #FF4800;
           border-color: #FF4800;
-          z-index: 1; /* Bring the hovered card above the fade effects */
+          z-index: 2;
         }
         .project-card img {
           width: 100%;
-          height: 150px; /* Fixed height for consistency */
-          object-fit: cover; /* Ensure images scale properly */
+          height: 150px;
+          object-fit: cover;
           border-radius: 10px;
           margin-bottom: 1rem;
           box-shadow: 0 0 10px #00D4FF;
@@ -411,7 +407,13 @@ const handleSubmit = async (e) => {
           font-size: 1rem;
           color: #ccc;
         }
-        /* Scroll Arrows */
+        .project-card a {
+          text-decoration: none;
+          color: inherit;
+          display: block; /* Ensure the entire card is clickable */
+          z-index: 3; /* Ensure links are above card */
+          pointer-events: auto;
+        }
         .scroll-arrow {
           position: absolute;
           top: 50%;
@@ -430,10 +432,10 @@ const handleSubmit = async (e) => {
           text-shadow: 0 0 10px #FF4800;
         }
         .skills-scroll-arrow {
-          top: 50%; /* Adjust position for skills section */
+          top: 50%;
         }
         .projects-scroll-arrow {
-          top: 60%; /* Adjust position for projects section due to different content height */
+          top: 60%;
         }
         .contact {
           max-width: 600px;
@@ -489,7 +491,6 @@ const handleSubmit = async (e) => {
           border-top: 1px solid #00D4FF;
           margin-top: 3rem;
         }
-        /* Responsive */
         @media (max-width: 768px) {
           .skills {
             flex-direction: column;
@@ -510,16 +511,16 @@ const handleSubmit = async (e) => {
           }
           .projects-container {
             justify-content: flex-start;
-            padding: 1rem 15px; /* Adjusted padding for smaller screens */
+            padding: 1rem 15px;
           }
           .projects-container > .project-card:first-child {
-            margin-left: 15px; /* Adjusted for smaller screens */
+            margin-left: 15px;
           }
           .projects-container > .project-card:last-child {
-            margin-right: 15px; /* Adjusted for smaller screens */
+            margin-right: 15px;
           }
           .project-card {
-            flex: 0 0 280px; /* Slightly smaller width for smaller screens */
+            flex: 0 0 280px;
           }
           .scroll-arrow {
             font-size: 1.5rem;
@@ -608,30 +609,43 @@ const handleSubmit = async (e) => {
       <section className="projects" id="projects" data-aos="fade-up">
         <h2>Projects</h2>
         <div className="projects-container">
-
-          <div className="project-card" tabIndex={0} role="article" aria-label="Project 1: Portfolio Website" onClick={() => console.log('Project card clicked')}>
-  <a href="https://tinyurl.com/Sharif-Portfolio" onClick={() => console.log('Link clicked')}>
-    <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
-    <h3>Portfolio Website</h3>
-    <p>A sleek portfolio website built with React and CSS animations.</p>
-  </a>
-</div>
-
-          <div className="project-card" tabIndex={0} role="article" aria-label="Project 1: Portfolio Website">
-           <a href="https://tinyurl.com/Sharif-Portfolio"> <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
-            <h3>Portfolio Website</h3>
-            <p>A sleek portfolio website built with React and CSS animations.</p></a>
+          <div className="project-card" tabIndex={0} role="article" aria-label="Project: Portfolio Website">
+            <a 
+              href="https://tinyurl.com/Sharif-Portfolio" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={(e) => { console.log('Portfolio link clicked:', e.target.href); e.stopPropagation(); }}
+            >
+              <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
+              <h3>Portfolio Website</h3>
+              <p>A sleek portfolio website built with React and CSS animations.</p>
+            </a>
           </div>
 
-          <div className="project-card" tabIndex={0} role="article" aria-label="Project 2: E-commerce App">
-           <a href="https://cravecrafters-frontend.onrender.com/"> <img src="https://i.postimg.cc/K8Z9ZTm2/e-commerce-img.png" alt="E-commerce project" />
-            <h3>E-commerce App</h3>
-            <p>Full-stack e-commerce application built with MERN stack Integrated with Stripe for Payments.</p></a>
+          <div className="project-card" tabIndex={0} role="article" aria-label="Project: E-commerce App">
+            <a 
+              href="https://cravecrafters-frontend.onrender.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={(e) => { console.log('E-commerce link clicked:', e.target.href); e.stopPropagation(); }}
+            >
+              <img src="https://i.postimg.cc/K8Z9ZTm2/e-commerce-img.png" alt="E-commerce project" />
+              <h3>E-commerce App</h3>
+              <p>Full-stack e-commerce application built with MERN stack Integrated with Stripe for Payments.</p>
+            </a>
           </div>
-          <div className="project-card" tabIndex={0} role="article" aria-label="Project 3: Chat Application">
-            <img src="https://via.placeholder.com/300x150" alt="Chat app project" />
-            <h3>Chat Application</h3>
-            <p>Real-time chat application using Socket.IO and Node.js.</p>
+
+          <div className="project-card" tabIndex={0} role="article" aria-label="Project: Chat Application">
+            <a 
+              href="https://example.com/chat-app" // Replace with actual URL or remove if not linked
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={(e) => { console.log('Chat app link clicked:', e.target.href); e.stopPropagation(); }}
+            >
+              <img src="https://via.placeholder.com/300x150" alt="Chat app project" />
+              <h3>Chat Application</h3>
+              <p>Real-time chat application using Socket.IO and Node.js.</p>
+            </a>
           </div>
         </div>
         <div className="scroll-arrow projects-scroll-arrow">➡️</div>
