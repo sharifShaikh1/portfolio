@@ -354,7 +354,7 @@ const PortFolio = () => {
           top: 0;
           bottom: 0;
           width: 30px;
-          z-index: 0; /* Lowered to ensure links are clickable */
+          z-index: 0;
           pointer-events: none;
         }
         .projects-container::before {
@@ -383,7 +383,7 @@ const PortFolio = () => {
           color: #00D4FF;
           text-align: left;
           position: relative;
-          z-index: 1; /* Ensure cards are above pseudo-elements */
+          z-index: 1;
         }
         .project-card:hover {
           transform: scale(1.05);
@@ -410,8 +410,8 @@ const PortFolio = () => {
         .project-card a {
           text-decoration: none;
           color: inherit;
-          display: block; /* Ensure the entire card is clickable */
-          z-index: 3; /* Ensure links are above card */
+          display: block;
+          z-index: 3;
           pointer-events: auto;
         }
         .scroll-arrow {
@@ -468,7 +468,7 @@ const PortFolio = () => {
           border-radius: 5px;
           font-size: 1.2rem;
           cursor: pointer;
-          box-shadow: 0 0 15px #00D4FF;
+          box-shadow: 00 15px #00D4FF;
           transition: background-color 0.3s;
         }
         .contact button:hover {
@@ -637,7 +637,7 @@ const PortFolio = () => {
 
           <div className="project-card" tabIndex={0} role="article" aria-label="Project: Chat Application">
             <a 
-              href="https://example.com/chat-app" // Replace with actual URL or remove if not linked
+              href="https://example.com/chat-app" 
               target="_blank" 
               rel="noopener noreferrer"
               onClick={(e) => { console.log('Chat app link clicked:', e.target.href); e.stopPropagation(); }}
