@@ -354,7 +354,7 @@ const PortFolio = () => {
           top: 0;
           bottom: 0;
           width: 30px;
-          z-index: -1;
+          z-index: 0;
           pointer-events: none;
         }
         .projects-container::before {
@@ -372,7 +372,7 @@ const PortFolio = () => {
           margin-right: 20px;
         }
         .project-card {
-          background-color: #FF0000; /* Changed to red for UI test */
+          background-color: #111;
           border: 1px solid #00D4FF;
           border-radius: 10px;
           flex: 0 0 300px;
@@ -468,7 +468,7 @@ const PortFolio = () => {
           border-radius: 5px;
           font-size: 1.2rem;
           cursor: pointer;
-          box-shadow: 0 0 15px #00D4FF;
+          box-shadow: 00 15px #00D4FF;
           transition: background-color 0.3s;
         }
         .contact button:hover {
@@ -614,11 +614,7 @@ const PortFolio = () => {
               href="https://tinyurl.com/Sharif-Portfolio" 
               target="_blank" 
               rel="noopener noreferrer"
-              onClick={(e) => { 
-                e.preventDefault();
-                console.log('Portfolio link clicked:', e.target.href); 
-                window.open('https://tinyurl.com/Sharif-Portfolio', '_blank'); 
-              }}
+              onClick={(e) => { console.log('Portfolio link clicked:', e.target.href); e.stopPropagation(); }}
             >
               <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
               <h3>Portfolio Website</h3>
@@ -631,11 +627,7 @@ const PortFolio = () => {
               href="https://cravecrafters-frontend.onrender.com/" 
               target="_blank" 
               rel="noopener noreferrer"
-              onClick={(e) => { 
-                e.preventDefault();
-                console.log('E-commerce link clicked:', e.target.href); 
-                window.open('https://cravecrafters-frontend.onrender.com/', '_blank'); 
-              }}
+              onClick={(e) => { console.log('E-commerce link clicked:', e.target.href); e.stopPropagation(); }}
             >
               <img src="https://i.postimg.cc/K8Z9ZTm2/e-commerce-img.png" alt="E-commerce project" />
               <h3>E-commerce App</h3>
@@ -648,11 +640,7 @@ const PortFolio = () => {
               href="https://example.com/chat-app" 
               target="_blank" 
               rel="noopener noreferrer"
-              onClick={(e) => { 
-                e.preventDefault();
-                console.log('Chat app link clicked:', e.target.href); 
-                window.open('https://example.com/chat-app', '_blank'); 
-              }}
+              onClick={(e) => { console.log('Chat app link clicked:', e.target.href); e.stopPropagation(); }}
             >
               <img src="https://via.placeholder.com/300x150" alt="Chat app project" />
               <h3>Chat Application</h3>
