@@ -1,0 +1,510 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto Mono", monospace;
+  background-color: #000;
+  color: #00d4ff;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body.light-theme {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+/* Tron Grid Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxyZWN0IHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzAwMDAwMCIvPjxwYXRoIGQ9Ik0gMCA1MCBMMCAwIE0wIDAgTDUwIDAiIHN0cm9rZT0iIzAwRDhGRiIgc3Ryb2tlLXdpZHRoPSIxIiBvcGFjaXR5PSIwLjMiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=");
+  background-size: 50px 50px;
+  z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 2px solid #00d4ff;
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+.navbar.light-theme {
+  background-color: rgba(26, 26, 26, 0.9);
+  border-bottom: 2px solid #fff;
+  box-shadow: 0 0 10px #fff;
+}
+
+.navbar .logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  color: #00d4ff;
+  text-shadow: 0 0 5px #00d4ff;
+}
+
+.navbar .nav-links a {
+  color: #00d4ff;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.navbar.light-theme .nav-links a {
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+}
+
+.navbar .nav-links a:hover {
+  color: #ff4800;
+  text-shadow: 0 0 10px #ff4800;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #00d4ff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.theme-toggle.light-theme {
+  color: #fff;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+}
+
+.hero .typed-text {
+  font-size: 2rem;
+  color: #ff4800;
+  text-shadow: 0 0 5px #ff4800, 0 0 10px #ff4800;
+}
+
+.hero .cta {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background: none;
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+.hero .cta:hover {
+  background-color: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff;
+}
+
+/* General Section Styles */
+section {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+section h2 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+  position: relative;
+  display: inline-block;
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+/* About Section */
+.about p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #00d4ff;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.skill-bar {
+  width: 200px;
+  text-align: left;
+}
+
+.skill-bar label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #ff4800;
+  text-shadow: 0 0 5px #ff4800;
+}
+
+.skill-bar .progress {
+  height: 10px;
+  background-color: #333;
+  border: 1px solid #00d4ff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 5px #00d4ff;
+}
+
+.skill-bar .progress div {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #00aaff);
+  width: 0;
+  transition: width 2s ease-in-out;
+  box-shadow: 0 0 10px #00d4ff, 0 0 15px #00d4ff;
+}
+
+/* Projects Section */
+.projects {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 300px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00d4ff;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px #00d4ff;
+  position: relative;
+}
+
+.project-card:hover {
+  border-color: #ff4800;
+  box-shadow: 0 0 20px #ff4800, 0 0 30px #ff4800;
+  transform: translateY(-5px);
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 212, 255, 0.1), rgba(255, 72, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: filter 0.3s;
+}
+
+.project-card:hover img {
+  filter: brightness(1);
+}
+
+.project-card h3 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: #00d4ff;
+  text-shadow: 0 0 5px #00d4ff;
+}
+
+.project-card p {
+  padding: 0 1rem 1rem;
+  color: #fff;
+  text-shadow: 0 0 5px #fff;
+}
+
+/* Contact Section */
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.8rem;
+  border: 1px solid #00d4ff;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #00d4ff;
+  box-shadow: 0 0 5px #00d4ff;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: #ff4800;
+  box-shadow: 0 0 10px #ff4800;
+}
+
+.contact button {
+  padding: 0.8rem;
+  background: none;
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+.contact button:hover {
+  background-color: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff;
+}
+
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: #00d4ff;
+  font-size: 2rem;
+  transition: all 0.3s;
+  text-shadow: 0 0 5px #00d4ff;
+}
+
+.social-links a:hover {
+  color: #ff4800;
+  text-shadow: 0 0 10px #ff4800, 0 0 15px #ff4800;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-top: 2px solid #00d4ff;
+  box-shadow: 0 -2px 10px #00d4ff;
+}
+
+footer p {
+  color: #00d4ff;
+  text-shadow: 0 0 5px #00d4ff;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px #00d4ff;
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 20px #00d4ff;
+}
+
+/* Intro Animation */
+.tron-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.grid-line {
+  position: absolute;
+  background-color: #00d4ff;
+  opacity: 0;
+  animation: drawLine 2s forwards;
+}
+
+#grid-line-h {
+  width: 0;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: drawLineHorizontal 2s forwards;
+}
+
+#grid-line-v {
+  width: 2px;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: drawLineVertical 2s forwards;
+}
+
+@keyframes drawLineHorizontal {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 50%;
+    opacity: 0.5;
+  }
+  100% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes drawLineVertical {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  50% {
+    height: 50%;
+    opacity: 0.5;
+  }
+  100% {
+    height: 50%;
+    opacity: 1;
+  }
+}
+
+.tron-logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 5rem;
+  color: #00d4ff;
+  text-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff;
+  animation: glow 1s infinite alternate, pulse 0.5s 3;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+  }
+  to {
+    text-shadow: 0 0 30px #00d4ff, 0 0 50px #00d4ff;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Glitch Animation for Typed.js */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
