@@ -535,7 +535,7 @@ const handleSubmit = async (e) => {
       `}</style>
 
       <nav className={`navbar ${isLightTheme ? 'light-theme' : ''}`}>
-        <div className="logo">Your Logo</div>
+        <div className="logo">sharif</div>
         <div className="nav-links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
@@ -608,15 +608,25 @@ const handleSubmit = async (e) => {
       <section className="projects" id="projects" data-aos="fade-up">
         <h2>Projects</h2>
         <div className="projects-container">
+
+          <div className="project-card" tabIndex={0} role="article" aria-label="Project 1: Portfolio Website" onClick={() => console.log('Project card clicked')}>
+  <a href="https://tinyurl.com/Sharif-Portfolio" onClick={() => console.log('Link clicked')}>
+    <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
+    <h3>Portfolio Website</h3>
+    <p>A sleek portfolio website built with React and CSS animations.</p>
+  </a>
+</div>
+
           <div className="project-card" tabIndex={0} role="article" aria-label="Project 1: Portfolio Website">
-            <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
+           <a href="https://tinyurl.com/Sharif-Portfolio"> <img src="https://i.postimg.cc/59vKgn6p/tron.png" alt="Portfolio project" />
             <h3>Portfolio Website</h3>
-            <p>A sleek portfolio website built with React and CSS animations.</p>
+            <p>A sleek portfolio website built with React and CSS animations.</p></a>
           </div>
+
           <div className="project-card" tabIndex={0} role="article" aria-label="Project 2: E-commerce App">
-            <img src="https://i.postimg.cc/K8Z9ZTm2/e-commerce-img.png" alt="E-commerce project" />
+           <a href="https://cravecrafters-frontend.onrender.com/"> <img src="https://i.postimg.cc/K8Z9ZTm2/e-commerce-img.png" alt="E-commerce project" />
             <h3>E-commerce App</h3>
-            <p>Full-stack e-commerce application built with MERN stack Integrated with Stripe for Payments.</p>
+            <p>Full-stack e-commerce application built with MERN stack Integrated with Stripe for Payments.</p></a>
           </div>
           <div className="project-card" tabIndex={0} role="article" aria-label="Project 3: Chat Application">
             <img src="https://via.placeholder.com/300x150" alt="Chat app project" />
