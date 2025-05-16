@@ -27,17 +27,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type'],
 }));
 
-app.options('/api/contact', (req, res) => {
-  const origin = req.headers.origin;
-  if (['https://sharifportfolio.vercel.app', 'http://localhost:5173'].includes(origin)) {
-    res.set({
-      'Access-Control-Allow-Origin': origin,
-      'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    });
-  }
-  res.status(200).end();
-});
+
 app.get('/api/contact', (req, res) => {
   res.status(200).json({ message: 'GET request to /api/contact works!' });
 });
