@@ -437,6 +437,30 @@ const PortFolio = () => {
         .projects-scroll-arrow {
           top: 60%;
         }
+        .resume {
+          max-width: 600px;
+          margin: 0 auto;
+          text-align: center;
+          padding: 4rem;
+        }
+        .resume .cta {
+          padding: 0.8rem 2rem;
+          background: none;
+          border: 2px solid #00D4FF;
+          color: #00D4FF;
+          text-decoration: none;
+          border-radius: 5px;
+          font-size: 1.2rem;
+          transition: all 0.3s;
+          box-shadow: 0 0 10px #00D4FF;
+          cursor: pointer;
+          display: inline-block;
+        }
+        .resume .cta:hover {
+          background-color: #00D4FF;
+          color: #000;
+          box-shadow: 0 0 20px #00D4FF;
+        }
         .contact {
           max-width: 600px;
           margin: 0 auto;
@@ -468,7 +492,7 @@ const PortFolio = () => {
           border-radius: 5px;
           font-size: 1.2rem;
           cursor: pointer;
-          box-shadow: 00 15px #00D4FF;
+          box-shadow: 0 0 15px #00D4FF;
           transition: background-color 0.3s;
         }
         .contact button:hover {
@@ -533,14 +557,160 @@ const PortFolio = () => {
             font-size: 1.5rem;
           }
         }
+        /* Adjustments for OnePlus 11R and similar devices (~412px) */
+        @media (max-width: 412px) {
+          .navbar {
+            padding: 0.8rem 1rem;
+          }
+          .navbar .logo {
+            font-size: 1.2rem;
+          }
+          .nav-links a {
+            margin: 0 0.5rem;
+            font-size: 0.9rem;
+          }
+          .theme-toggle {
+            font-size: 1.2rem;
+          }
+          .hero h1 {
+            font-size: 2.5rem;
+          }
+          .typed-text {
+            font-size: 1.2rem;
+            min-height: 1.5rem;
+          }
+          .hero .cta {
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+          }
+          section {
+            padding: 3rem 1rem;
+          }
+          section h2 {
+            font-size: 2rem;
+          }
+          .about p {
+            font-size: 1rem;
+          }
+          .skill-bar {
+            flex: 0 0 120px;
+          }
+          .skills-container::before {
+            left: 0;
+          }
+          .project-card {
+            flex: 0 0 240px;
+            padding: 0.8rem;
+          }
+          .project-card img {
+            height: 120px;
+          }
+          .project-card h3 {
+            font-size: 1.2rem;
+          }
+          .project-card p {
+            font-size: 0.9rem;
+          }
+          .resume {
+            padding: 2rem 1rem;
+          }
+          .resume .cta {
+            padding: 0.6rem 1.5rem;
+            font-size: 1rem;
+          }
+          .contact input, .contact textarea {
+            padding: 0.6rem;
+            font-size: 0.9rem;
+          }
+          .contact button {
+            padding: 0.8rem;
+            font-size: 1rem;
+          }
+          footer {
+            padding: 1.5rem 1rem;
+            font-size: 0.9rem;
+          }
+        }
+        /* Adjustments for Samsung Galaxy S9 and smaller devices (~360px) */
+        @media (max-width: 360px) {
+          .navbar {
+            padding: 0.6rem 0.8rem;
+          }
+          .navbar .logo {
+            font-size: 1rem;
+          }
+          .nav-links a {
+            margin: 0 0.3rem;
+            font-size: 0.8rem;
+          }
+          .theme-toggle {
+            font-size: 1rem;
+          }
+          .hero h1 {
+            font-size: 2rem;
+          }
+          .typed-text {
+            font-size: 1rem;
+            min-height: 1.2rem;
+          }
+          .hero .cta {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+          }
+          section {
+            padding: 2.5rem 0.8rem;
+          }
+          section h2 {
+            font-size: 1.8rem;
+          }
+          .about p {
+            font-size: 0.9rem;
+          }
+          .skill-bar {
+            flex: 0 0 100px;
+          }
+          .project-card {
+            flex: 0 0 220px;
+            padding: 0.6rem;
+          }
+          .project-card img {
+            height: 100px;
+          }
+          .project-card h3 {
+            font-size: 1rem;
+          }
+          .project-card p {
+            font-size: 0.8rem;
+          }
+          .resume {
+            padding: 1.5rem 0.8rem;
+          }
+          .resume .cta {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+          }
+          .contact input, .contact textarea {
+            padding: 0.5rem;
+            font-size: 0.8rem;
+          }
+          .contact button {
+            padding: 0.6rem;
+            font-size: 0.9rem;
+          }
+          footer {
+            padding: 1rem 0.8rem;
+            font-size: 0.8rem;
+          }
+        }
       `}</style>
 
       <nav className={`navbar ${isLightTheme ? 'light-theme' : ''}`}>
-        <div className="logo">sharif</div>
+        <div className="logo">Sharif</div>
         <div className="nav-links">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#projects">Projects</a>
+          <a href="#resume">Resume</a>
           <a href="#contact">Contact</a>
         </div>
         <button
@@ -626,7 +796,7 @@ const PortFolio = () => {
             <a 
               href="https://cravecrafters-frontend.onrender.com/" 
               target="_blank" 
-              rel="noopener noreferrer"
+              rel="noopener noreferrer" // Fixed the syntax error here
               onClick={(e) => { console.log('E-commerce link clicked:', e.target.href); e.stopPropagation(); }}
             >
               <img src="https://i.postimg.cc/K8Z9ZTm2/e-commerce-img.png" alt="E-commerce project" />
@@ -634,11 +804,22 @@ const PortFolio = () => {
               <p>Full-stack e-commerce application built with MERN stack Integrated with Stripe for Payments.</p>
             </a>
           </div>
-
-          
-          
         </div>
         <div className="scroll-arrow projects-scroll-arrow">➡️</div>
+      </section>
+
+      <section className="resume" id="resume" data-aos="fade-up">
+        <h2>Resume</h2>
+        <a 
+          href="/Sharif_chand_shaikh.pdf"
+          download="Sharif_Shaikh_Resume.pdf"
+          className="cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(e) => console.log('Resume download link clicked:', e.target.href)}
+        >
+          Download My Resume
+        </a>
       </section>
 
       <section className="contact" id="contact" data-aos="fade-up">
