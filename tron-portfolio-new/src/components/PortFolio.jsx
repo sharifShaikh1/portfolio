@@ -781,7 +781,7 @@ const PortFolio = () => {
         <div className="projects-container">
           <div className="project-card" tabIndex={0} role="article" aria-label="Project: Portfolio Website">
             <a 
-              href="https://tinyurl.com/Sharif-Portfolio" 
+              href="https://sharif-portfolio.onrender.com" 
               target="_blank" 
               rel="noopener noreferrer"
               onClick={(e) => { console.log('Portfolio link clicked:', e.target.href); e.stopPropagation(); }}
